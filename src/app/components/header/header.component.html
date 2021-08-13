@@ -1,26 +1,66 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">MINED</a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/contact">Contacto</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">MINED</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contacto</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <!-- <ng-container *ngIfElse="IniciarSesion; then iniciar; else cerrar"></ng-container> -->
+        <ng-container
+          *ngIf="IniciarSesion; then iniciar; else cerrar"></ng-container>
+        <ng-template #iniciar>
+          <button
+            class="btn btn-outline-success"
+            type="button" (click)="abrirFormularioIniciarSesion(formularioIniciarSesion)">
+            Iniciar
+          </button>
+        </ng-template>
+
+        <ng-template #cerrar>
+          <button
+            class="btn btn-outline-warning"
+            type="button" (click)="cerrarSesion()">
+            Cerrar
+          </button>
+        </ng-template>
+
+        <!-- <button class="btn btn-outline-success" (click)="iniciarSesion()" type="button" *ngIf="IniciarSesion;">Iniciar</button>
+        <button class="btn btn-outline-warning" (click)="cerrarSesion()" type="button" *ngIf="!IniciarSesion;">Cerrar</button> -->
+      </form>
     </div>
+  </div>
 </nav>
+  <ng-template #formularioIniciarSesion let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Click en la X')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-form-login></app-form-login>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  <hr>
+
+  <pre>{{ closeResult }}</pre>
