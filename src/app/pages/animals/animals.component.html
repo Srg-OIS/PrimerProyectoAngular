@@ -1,0 +1,56 @@
+<form [formGroup]="formularioAnimal" (ngSubmit)="agregarAnimal()">
+  <div class="container row">
+    <div class="row">
+
+      <div class="col-lg-3">
+        <label for="txtNombre" class="form-label"><strong>Nombre Científico</strong></label>
+        <input type="text" class="form-control" id="txtNombre" name="txtNombre" formControlName="nombreCientifico" placeholder="Ingrese nombre científico"/>
+      </div>
+
+      <div class="col-lg-3">
+        <label for="txtEspecie" class="form-label"><strong>Especie</strong></label>
+        <input  type="text" class="form-control" id="txtEspecie" name="txtEspecie" formControlName="especie" placeholder="Ingrese Especie"/>
+      </div>
+
+      <div class="col-lg-3">
+        <label for="ddlAlimentacion" class="form-label"><strong>Alimentación</strong></label>
+        <select class="form-control" id="ddlAlimentacion" name="ddlAlimentacion" formControlName="alimentacion">
+          <option value="Indefinido">Seleccione</option>
+          <option value="Herbívoro">Herbívoro</option>
+          <option value="Omnívoro">Omnívoro</option>
+          <option value="Carnívoro">Carnívoro</option>
+        </select>
+      </div>
+
+      <div class="col-lg-3 gap"><br>
+        <button class="btn btn-primary btn-lg" type="submit">Agregar</button>
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 50px">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-1"><strong>ID</strong></div>
+          <div class="col-3"><strong>Nombre Científico</strong></div>
+          <div class="col-3"><strong>Especie</strong></div>
+          <div class="col-3"><strong>Alimentación</strong></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row" *ngFor="let animal of animales ; index as i">
+          <div class="col-1" style="border-bottom: black solid 1px"> <h4>{{i+1}}</h4> </div>
+          <div class="col-3" style="border-bottom: black solid 1px"> <h4>{{animal.nombreCientifico}}</h4> </div>
+          <div class="col-3" style="border-bottom: black solid 1px"> <h4>{{animal.especie}}</h4> </div>
+          <div class="col-3" style="border-bottom: black solid 1px"> <h4>{{animal.alimentacion}}</h4> </div>
+          <div class="col-2"><button (click)="eliminarAnimal(i)">X</button></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</form>
+
