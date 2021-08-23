@@ -13,6 +13,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnimalsComponent } from './pages/animals/animals.component';
+import { FormRegisterComponent } from './components/form-register/form-register.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AnimalsComponent } from './pages/animals/animals.component';
     HighlightDirective,
     FormLoginComponent,
     AnimalsComponent,
+    FormRegisterComponent,
   ],
   imports: [
     BrowserModule,

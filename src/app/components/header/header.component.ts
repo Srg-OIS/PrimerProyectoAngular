@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
     });
   }
   public abrirFormularioIniciarSesion(formularioIniciarSesion: any) {
+
     this.modalService.open(formularioIniciarSesion, {
       ariaLabelledBy: 'modal-basic-title',
       size: 'lg'
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
     }, (razonCierre) => {
       console.log('razonCierre', razonCierre);
     });
+    
   }
 
   private getDismissReason(reason: any): string {
